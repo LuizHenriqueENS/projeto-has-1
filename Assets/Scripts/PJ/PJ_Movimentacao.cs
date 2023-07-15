@@ -31,4 +31,8 @@ public class PJ_Movimentacao : MonoBehaviour
 
         rb.velocity = new Vector2(movimentacaoHorizontal * Time.deltaTime, rb.velocity.y);
     }
+
+    public void Pular(){
+        rb.AddForce(new Vector2(0, 200f));
+    }
 }
