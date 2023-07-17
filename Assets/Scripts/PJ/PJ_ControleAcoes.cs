@@ -6,12 +6,14 @@ using UnityEngine.EventSystems;
 public class PJ_ControleAcoes : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] string acao;
-    PJ_Movimentacao jogador;
+    PJ_Movimentacao movimentacao;
+    PJ_Combate combate;
 
 
     private void Start()
     {
-        jogador = FindObjectOfType<PJ_Movimentacao>();
+        movimentacao = FindObjectOfType<PJ_Movimentacao>();
+        combate = FindObjectOfType<PJ_Combate>();
     }
 
 
@@ -21,10 +23,10 @@ public class PJ_ControleAcoes : MonoBehaviour, IPointerDownHandler
         switch (acao)
         {
             case "Pular":
-                jogador.Pular();
+                movimentacao.Pular();
                 break;
             case "Ataque Leve":
-                Debug.Log("Ataque Leve");
+                combate.AtaqueBasico();
                 break;
         }
     }

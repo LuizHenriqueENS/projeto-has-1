@@ -7,20 +7,19 @@ public class PJ_Movimentacao : MonoBehaviour
 {
 
     private float _movimentacaoHorizontal = 0f;
-    [SerializeField] float velocidadePJ = 30f;
-    [SerializeField] float alturaPulo = 200f;
-    private bool podePular = false;
-
-
-    [SerializeField] Transform checarChao;
-    [SerializeField] LayerMask layerChao;
-    [SerializeField] Joystick joystick;
-    [SerializeField] Animator animator;
-    private Rigidbody2D _rb;
+    [SerializeField] bool podePular = true;
     private bool _olhandoParaDireita = true;
-    bool chao;
+    [SerializeField] float velocidadePJ;
+    [SerializeField] float alturaPulo = 200f;
 
-    // Start is called before the first frame update
+    [SerializeField] Joystick joystick;
+    [SerializeField] public Animator animator;
+    private Rigidbody2D _rb;
+    private bool _chao;
+
+    // Cache
+    private float velocidadePadrao = 350f;
+
     void Start()
     {
         Application.targetFrameRate = 60;
@@ -91,5 +90,22 @@ public class PJ_Movimentacao : MonoBehaviour
             podePular = true;
             animator.SetBool("Pular", false);
         }
+    }
+   private void OnCollisionExit2D(Collision2D other) {
+    podePular = false;
+   }
+
+
+    public void DefinirVelocidadeHorizontal(float valor){
+        velocidadePJ = valor;
+
+        if(valor == 0){
+            podePular = false;
+        }
+    }
+
+    public void RedefinirVelocidadeJogadorEPulo(){
+        velocidadePJ = velocidadePadrao;
+        podePular = true;
     }
 }
