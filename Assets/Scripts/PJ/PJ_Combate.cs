@@ -22,6 +22,7 @@ public class PJ_Combate : MonoBehaviour
 
     public void AtaqueBasico()
     {
+
         if (_rb2d.velocity.x == 0 && Time.time >= delayProximoAtaque)
         {
             jogador.DefinirVelocidadeHorizontal(0f);
@@ -42,5 +43,9 @@ public class PJ_Combate : MonoBehaviour
             }
             delayProximoAtaque = Time.time + 1f / ritmoAtaques;
         }
+    }
+
+    public void ResetarCombo(){
+        comboLeve = 1;
     }
 }

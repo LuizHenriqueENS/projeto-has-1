@@ -29,5 +29,6 @@ public class PJ_ControleAcoes : MonoBehaviour, IPointerDownHandler
                 combate.AtaqueBasico();
                 break;
         }
+         
     }
 }
