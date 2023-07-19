@@ -12,7 +12,7 @@ public class PJ_Movimentacao : MonoBehaviour
     [SerializeField] float velocidadePJ;
     [SerializeField] float alturaPulo = 200f;
 
-    [SerializeField] Joystick joystick;
+    private Joystick joystick;
     [SerializeField] public Animator animator;
     [SerializeField] Rigidbody2D _rb;
     private bool _chao;
