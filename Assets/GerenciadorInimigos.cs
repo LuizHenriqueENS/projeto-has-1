@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GerenciadorInimigos : MonoBehaviour
 {
-    
+
     [SerializeField] GameObject[] inimigos;
     [SerializeField] Transform[] locaisSurgimento;
     [SerializeField] float tempoRespawn = 3f;
-    private float delaySurgimento = 10f;
+    private float delaySurgimento = 3f;
     void Start()
     {
         InstanciarInimigo();
@@ -16,14 +16,22 @@ public class GerenciadorInimigos : MonoBehaviour
 
     void Update()
     {
-        if(Time.time >= (delaySurgimento)){
+
+        if (Time.time >= (delaySurgimento))
+        {
             InstanciarInimigo();
 
             delaySurgimento = Time.time + tempoRespawn;
         }
     }
 
-    void InstanciarInimigo(){
-         Instantiate(inimigos[Random.Range(0, inimigos.Length)], locaisSurgimento[Random.Range(0, locaisSurgimento.Length)]);
+    void InstanciarInimigo()
+    {
+        bool quantidade = FindObjectsOfType<Inimigo>().Length >= 3 ? true : false;
+
+        if (!quantidade)
+        {
+            Instantiate(inimigos[Random.Range(0, inimigos.Length)], locaisSurgimento[Random.Range(0, locaisSurgimento.Length)]);
+        }
     }
 }
