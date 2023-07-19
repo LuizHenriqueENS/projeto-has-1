@@ -31,7 +31,6 @@ public class PJ_Movimentacao : MonoBehaviour
     {
         // Movimentar
         MoverHorizontalmente();
-      
     }
 
     private void MoverHorizontalmente()
