@@ -14,7 +14,7 @@ public class PJ_Movimentacao : MonoBehaviour
 
     [SerializeField] Joystick joystick;
     [SerializeField] public Animator animator;
-    private Rigidbody2D _rb;
+    [SerializeField] Rigidbody2D _rb;
     private bool _chao;
 
     // Cache
@@ -22,8 +22,8 @@ public class PJ_Movimentacao : MonoBehaviour
 
     void Start()
     {
+        joystick = FindObjectOfType<Joystick>();
         Application.targetFrameRate = 60;
-        _rb = FindObjectOfType<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -31,6 +31,7 @@ public class PJ_Movimentacao : MonoBehaviour
     {
         // Movimentar
         MoverHorizontalmente();
+      
     }
 
     private void MoverHorizontalmente()

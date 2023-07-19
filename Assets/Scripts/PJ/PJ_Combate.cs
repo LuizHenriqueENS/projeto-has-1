@@ -29,15 +29,17 @@ public class PJ_Combate : MonoBehaviour
             switch (comboLeve)
             {
                 case 1:
-                    jogador.animator.SetTrigger("Ataque Leve 1");
+                    jogador.animator.SetBool("AtaqueLeve1", true);
                     comboLeve++;
                     break;
                 case 2:
-                    jogador.animator.SetTrigger("Ataque Leve 2");
+                    jogador.animator.SetBool("AtaqueLeve1", false);
+                    jogador.animator.SetBool("AtaqueLeve2", true);
                     comboLeve++;
                     break;
                 case 3:
-                    jogador.animator.SetTrigger("Ataque Leve 3");
+                    jogador.animator.SetBool("AtaqueLeve2", false);
+                    jogador.animator.SetBool("AtaqueLeve3", true);
                     comboLeve = 1;
                     break;
             }
@@ -45,7 +47,12 @@ public class PJ_Combate : MonoBehaviour
         }
     }
 
-    public void ResetarCombo(){
+    public void ResetarCombo()
+    {
         comboLeve = 1;
+        jogador.animator.SetBool("AtaqueLeve1", false);
+        jogador.animator.SetBool("AtaqueLeve2", false);
+        jogador.animator.SetBool("AtaqueLeve3", false);
+
     }
 }
