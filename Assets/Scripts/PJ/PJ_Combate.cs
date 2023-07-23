@@ -10,6 +10,9 @@ public class PJ_Combate : MonoBehaviour
     private int comboLeve = 1;
 
     [SerializeField] float ritmoAtaques = 2f;
+    [SerializeField] Transform alcanceDoAtaque;
+    [SerializeField] float raioDosAtaques;
+    [SerializeField] LayerMask inimigos;
     private float delayProximoAtaque = 0f;
 
     private void Start()
@@ -26,6 +29,7 @@ public class PJ_Combate : MonoBehaviour
         if (_rb2d.velocity.x == 0 && Time.time >= delayProximoAtaque)
         {
             jogador.DefinirVelocidadeHorizontal(0f);
+
             switch (comboLeve)
             {
                 case 1:
@@ -47,6 +51,19 @@ public class PJ_Combate : MonoBehaviour
         }
     }
 
+    public void AtacarInimigosNoRange()
+    {
+        var inimigosNoAlcance = Physics2D.OverlapCircleAll(alcanceDoAtaque.position, raioDosAtaques, inimigos);
+        foreach (var inimigo in inimigosNoAlcance)
+        {
+            var componente = inimigo.GetComponent<Inimigo>();
+            if (inimigo.gameObject.layer == 7)
+            {
+                componente.LevarDano(5f);
+
+            }
+        }
+    }
     public void ResetarCombo()
     {
         comboLeve = 1;
@@ -54,5 +71,10 @@ public class PJ_Combate : MonoBehaviour
         jogador.animator.SetBool("AtaqueLeve2", false);
         jogador.animator.SetBool("AtaqueLeve3", false);
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(alcanceDoAtaque.position, raioDosAtaques);
     }
 }
