@@ -35,6 +35,7 @@ public class Inimigo : MonoBehaviour
         if (vidaAtual <= 0)
         {
             animatorInimigo.SetBool("Morto", true);
+            sliderBarraDeVida.gameObject.SetActive(false);
             gameObject.layer = 8;
             Destroy(gameObject, 3f);
         }

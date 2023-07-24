@@ -2,22 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PJ_Animacoes : StateMachineBehaviour
+public class Animacao_AtaquesBasicos : StateMachineBehaviour
 {
-    PJ_Combate combate;
-    PJ_Movimentacao movimentacao;
-
+     PJ_Combate combate;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        // Resetar combo leve
-        combate = FindObjectOfType<PJ_Combate>();
-        combate.ResetarCombo();
-
-        movimentacao = FindObjectOfType<PJ_Movimentacao>();
-        movimentacao.RedefinirVelocidadeJogadorEPulo();
-
-    }
+    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -28,7 +20,8 @@ public class PJ_Animacoes : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        combate.DefinirPodeAtacar();
+     combate = FindObjectOfType<PJ_Combate>();
+     combate.DefinirPodeAtacar();  
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -4,16 +4,31 @@ using UnityEngine;
 
 public class PJ_Combate : MonoBehaviour
 {
+
+    // cache
     PJ_Movimentacao jogador;
     Rigidbody2D _rb2d;
 
+    // variaveis privadas
     private int comboLeve = 1;
-
-    [SerializeField] float ritmoAtaques = 2f;
-    [SerializeField] Transform alcanceDoAtaque;
-    [SerializeField] float raioDosAtaques;
-    [SerializeField] LayerMask inimigos;
     private float delayProximoAtaque = 0f;
+    private bool podeAtacar = true;
+
+    [Header("Status do Jogador")]
+    [SerializeField] float vidaAtual;
+    [SerializeField] float vidaMaxima = 100f;
+    [SerializeField] int nivelJogador = 1;
+
+    [Header("Ataque")]
+    [SerializeField] float danoAtaqueBasico = 5f;
+
+
+    [Header("Configurações do Jogador")]
+    [SerializeField] float ritmoAtaques = 2f;
+    [SerializeField] float raioDosAtaques;
+    [SerializeField] Transform alcanceDoAtaque;
+    [SerializeField] LayerMask inimigos;
+    [SerializeField] float moverDuranteAtaque;
 
     private void Start()
     {
@@ -26,9 +41,16 @@ public class PJ_Combate : MonoBehaviour
     public void AtaqueBasico()
     {
 
-        if (_rb2d.velocity.x == 0 && Time.time >= delayProximoAtaque)
+        if (_rb2d.velocity.x == 0 && podeAtacar)
         {
+            podeAtacar = false;
             jogador.DefinirVelocidadeHorizontal(0f);
+            if(gameObject.transform.localScale == new Vector3(1,1,1)){
+                _rb2d.AddForce(new Vector2(-moverDuranteAtaque, 0));
+            } else{
+                _rb2d.AddForce(new Vector2(moverDuranteAtaque, 0));
+                //transform.position += new Vector3(moverDuranteAtaque,0,0);
+            }
 
             switch (comboLeve)
             {
@@ -59,8 +81,7 @@ public class PJ_Combate : MonoBehaviour
             var componente = inimigo.GetComponent<Inimigo>();
             if (inimigo.gameObject.layer == 7)
             {
-                componente.LevarDano(5f);
-
+                componente.LevarDano(danoAtaqueBasico);
             }
         }
     }
@@ -76,5 +97,9 @@ public class PJ_Combate : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(alcanceDoAtaque.position, raioDosAtaques);
+    }
+
+    public void DefinirPodeAtacar(){
+        podeAtacar =true;
     }
 }
