@@ -9,7 +9,6 @@ public class Inimigo : MonoBehaviour
     [SerializeField] private Animator animatorInimigo;
     [SerializeField] private Slider sliderBarraDeVida;
     [SerializeField] private float efeitoPuloMorte;
-    [SerializeField] private float efeitoEmpurrarDuranteDano;
 
 
     [Header("Status Inimigos")]
@@ -38,7 +37,7 @@ public class Inimigo : MonoBehaviour
 
     }
 
-    public void LevarDano(float dano)
+    public void LevarDano(float dano, float efeitoEmpurrarDuranteDano)
     {
         vidaAtual -= dano;
         sliderBarraDeVida.value -= dano;

@@ -30,6 +30,11 @@ public class PJ_Combate : MonoBehaviour
     [SerializeField] LayerMask inimigos;
     [SerializeField] float moverDuranteAtaque;
 
+
+    [Header("Efeitos no inimigo")]
+
+    [SerializeField] private float efeitoEmpurrarDuranteDano;
+
     private void Start()
     {
         comboLeve = 1;
@@ -81,7 +86,7 @@ public class PJ_Combate : MonoBehaviour
             var componente = inimigo.GetComponent<Inimigo>();
             if (inimigo.gameObject.layer == 7)
             {
-                componente.LevarDano(danoAtaqueBasico);
+                componente.LevarDano(danoAtaqueBasico, efeitoEmpurrarDuranteDano);
             }
         }
     }
