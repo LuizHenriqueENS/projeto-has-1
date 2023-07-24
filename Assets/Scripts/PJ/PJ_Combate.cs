@@ -10,9 +10,9 @@ public class PJ_Combate : MonoBehaviour
     Rigidbody2D _rb2d;
 
     // variaveis privadas
-    private int comboLeve = 1;
+    [SerializeField]private int comboLeve = 1;
     private float delayProximoAtaque = 0f;
-    private bool podeAtacar = true;
+    [SerializeField]private bool podeAtacar = true;
 
     [Header("Status do Jogador")]
     [SerializeField] float vidaAtual;
@@ -33,8 +33,8 @@ public class PJ_Combate : MonoBehaviour
     private void Start()
     {
         comboLeve = 1;
-        jogador = FindObjectOfType<PJ_Movimentacao>();
-        _rb2d = FindObjectOfType<Rigidbody2D>();
+        jogador = GetComponent<PJ_Movimentacao>();
+        _rb2d = GetComponent<Rigidbody2D>();
     }
 
 

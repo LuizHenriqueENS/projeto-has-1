@@ -108,4 +108,8 @@ public class PJ_Movimentacao : MonoBehaviour
         velocidadePJ = velocidadePadrao;
         podePular = true;
     }
+
+    public Vector3 LadoQueJogadorEstaOlhando(){
+        return transform.localScale;
+    }
 }

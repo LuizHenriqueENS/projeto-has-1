@@ -13,6 +13,7 @@ public class PJ_Animacoes : StateMachineBehaviour
         // Resetar combo leve
         combate = FindObjectOfType<PJ_Combate>();
         combate.ResetarCombo();
+        combate.DefinirPodeAtacar();
 
         movimentacao = FindObjectOfType<PJ_Movimentacao>();
         movimentacao.RedefinirVelocidadeJogadorEPulo();
@@ -26,10 +27,10 @@ public class PJ_Animacoes : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        combate.DefinirPodeAtacar();
-    }
+    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -217,7 +217,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &6487386655502715139
 BoxCollider2D:
@@ -299,6 +299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorInimigo: {fileID: 1498043170850325113}
   sliderBarraDeVida: {fileID: 1768299046107754940}
+  efeitoPuloMorte: 50000
+  efeitoEmpurrarDuranteDano: 500
   vidaAtual: 0
   vidaMaxima: 100
 --- !u!1001 &6032229133243415006

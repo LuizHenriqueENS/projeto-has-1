@@ -68,7 +68,7 @@ Transform:
   m_Children:
   - {fileID: 8068908042537450816}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2146267510705828721
 SpriteRenderer:
@@ -279,9 +279,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308d4d0708b6ceb428fbc5c3a1ec5852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLeve: 1
+  podeAtacar: 1
+  vidaAtual: 0
+  vidaMaxima: 100
+  nivelJogador: 1
+  danoAtaqueBasico: 5
   ritmoAtaques: 5
-  alcanceDoAtaque: {fileID: 8068908042537450816}
   raioDosAtaques: 0.72
+  alcanceDoAtaque: {fileID: 8068908042537450816}
   inimigos:
     serializedVersion: 2
     m_Bits: 128
+  moverDuranteAtaque: 600
