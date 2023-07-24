@@ -28,7 +28,6 @@ public class GerenciadorInimigos : MonoBehaviour
     void InstanciarInimigo()
     {
         bool quantidade = FindObjectsOfType<Inimigo>().Length >= 3 ? true : false;
-
         if (!quantidade)
         {
             Instantiate(inimigos[Random.Range(0, inimigos.Length)], locaisSurgimento[Random.Range(0, locaisSurgimento.Length)]);
