@@ -133,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 7400863858118074077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.97, y: -1.46, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.15, y: 1.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1656807344343406717}
@@ -300,7 +300,6 @@ MonoBehaviour:
   animatorInimigo: {fileID: 1498043170850325113}
   sliderBarraDeVida: {fileID: 1466647586245873561}
   efeitoPuloMorte: 50000
-  efeitoEmpurrarDuranteDano: 500
   vidaAtual: 0
   vidaMaxima: 100
 --- !u!1001 &6874215722709993467

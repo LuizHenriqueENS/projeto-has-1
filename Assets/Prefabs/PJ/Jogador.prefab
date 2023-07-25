@@ -292,3 +292,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   moverDuranteAtaque: 600
+  efeitoEmpurrarDuranteDano: 400
