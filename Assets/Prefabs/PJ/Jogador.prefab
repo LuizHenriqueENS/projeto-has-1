@@ -283,11 +283,12 @@ MonoBehaviour:
   _vidaMaxima: 100
   _energiaAtual: 0
   _energiaMaxima: 100
+  _regeneracaoEnergia: 6
   _nivelJogador: 1
   danoAtaqueBasico: 10
-  gastoDeEnergiaAtaqueLeve1: 5
-  gastoDeEnergiaAtaqueLeve2: 10
-  gastoDeEnergiaAtaqueLeve3: 15
+  gastoDeEnergiaAtaqueLeve1: 10
+  gastoDeEnergiaAtaqueLeve2: 15
+  gastoDeEnergiaAtaqueLeve3: 20
   danoExtraComboAtaqueLeve2: 10
   danoExtraComboAtaqueLeve3: 15
   ritmoAtaques: 5

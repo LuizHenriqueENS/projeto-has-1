@@ -21,8 +21,9 @@ public class PJ_Combate : MonoBehaviour
     [SerializeField] private float _vidaMaxima = 100f;
     [SerializeField] private float _energiaAtual;
     [SerializeField] private float _energiaMaxima = 100f;
-
+    [SerializeField]private float _regeneracaoEnergia;
     [SerializeField] private int _nivelJogador = 1;
+    [SerializeField] private int _quantidadeExperiencia;
 
     [Header("Ataque")]
     [SerializeField] float danoAtaqueBasico = 5f;
@@ -41,7 +42,7 @@ public class PJ_Combate : MonoBehaviour
     [SerializeField] Slider sliderBarraDeEnergia;
     [SerializeField] private float moverDuranteAtaque;
 
-
+    [SerializeField] List<int> _expPorNivel;
 
 
     [Header("Efeitos no inimigo")]
@@ -74,13 +75,29 @@ public class PJ_Combate : MonoBehaviour
     private void Update()
     {
         RegenegarEnergia();
+
+        for(int i = 0; i < _expPorNivel.Count; i++){
+            if(_quantidadeExperiencia <= _expPorNivel[i]){
+                _nivelJogador = i + 1;
+                break;
+            } else{
+                _nivelJogador = _expPorNivel.Count;
+            }
+        }
     }
 
     private void RegenegarEnergia()
     {
-        if (Time.time >= _tempoRecarga && _rb2d.velocity.x == 0 && _energiaAtual < _energiaMaxima)
+        if(_rb2d.velocity.x == 0 && _rb2d.velocity.y == 0){
+            if (Time.time >= _tempoRecarga && _energiaAtual < _energiaMaxima)
         {
-            _energiaAtual += 10;
+            _energiaAtual += _regeneracaoEnergia * 2;
+            _tempoRecarga = Time.fixedTime + 0.5f;
+        }
+        }
+        if (Time.time >= _tempoRecarga && _energiaAtual < _energiaMaxima)
+        {
+            _energiaAtual += _regeneracaoEnergia;
             _tempoRecarga = Time.fixedTime + 0.5f;
         }
         sliderBarraDeEnergia.value = _energiaAtual;
@@ -160,5 +177,9 @@ public class PJ_Combate : MonoBehaviour
     public void DefinirPodeAtacar()
     {
         podeAtacar = true;
+    }
+
+    public void AdicionarPontosDeExperiencia(int quantidade){
+        _quantidadeExperiencia += quantidade;
     }
 }

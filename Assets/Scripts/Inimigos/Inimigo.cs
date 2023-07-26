@@ -16,6 +16,9 @@ public class Inimigo : MonoBehaviour
     [SerializeField] float vidaMaxima = 100f;
 
 
+    [Header("Experiência para o jogador")]
+    [SerializeField] private int _experiencia;
+
     // CACHE
     private Rigidbody2D _rb;
     private PJ_Movimentacao _jogador;
