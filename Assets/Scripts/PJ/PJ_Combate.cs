@@ -39,14 +39,18 @@ public class PJ_Combate : MonoBehaviour
     [SerializeField] LayerMask inimigos;
     [SerializeField] Slider sliderBarraDeVida;
     [SerializeField] Slider sliderBarraDeEnergia;
+    [SerializeField] private float moverDuranteAtaque;
 
 
-    float moverDuranteAtaque;
 
 
     [Header("Efeitos no inimigo")]
 
     [SerializeField] private float efeitoEmpurrarDuranteDano;
+
+
+    private float _tempo = 1f;
+    private float _tempoRecarga = 1f;
 
     private void Start()
     {
@@ -61,11 +65,26 @@ public class PJ_Combate : MonoBehaviour
         _vidaAtual = _vidaMaxima;
 
         cacheAtaqueBasico = danoAtaqueBasico;
+
         // caches iniciais
         jogador = GetComponent<PJ_Movimentacao>();
         _rb2d = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        RegenegarEnergia();
+    }
+
+    private void RegenegarEnergia()
+    {
+        if (Time.time >= _tempoRecarga && _rb2d.velocity.x == 0 && _energiaAtual < _energiaMaxima)
+        {
+            _energiaAtual += 10;
+            _tempoRecarga = Time.fixedTime + 0.5f;
+        }
+        sliderBarraDeEnergia.value = _energiaAtual;
+    }
 
     public void AtaqueBasico()
     {
@@ -81,7 +100,6 @@ public class PJ_Combate : MonoBehaviour
             else
             {
                 _rb2d.AddForce(new Vector2(moverDuranteAtaque, 0));
-                //transform.position += new Vector3(moverDuranteAtaque,0,0);
             }
 
             switch (comboLeve)
@@ -89,7 +107,7 @@ public class PJ_Combate : MonoBehaviour
                 case 1:
                     jogador.animator.SetBool("AtaqueLeve1", true);
                     _energiaAtual -= gastoDeEnergiaAtaqueLeve1;
-                    sliderBarraDeEnergia.value = _energiaAtual;
+
                     comboLeve++;
                     break;
                 case 2:
@@ -97,7 +115,6 @@ public class PJ_Combate : MonoBehaviour
                     jogador.animator.SetBool("AtaqueLeve2", true);
                     _energiaAtual -= gastoDeEnergiaAtaqueLeve2;
                     danoAtaqueBasico += danoExtraComboAtaqueLeve2;
-                    sliderBarraDeEnergia.value = _energiaAtual;
                     comboLeve++;
                     break;
                 case 3:
@@ -105,7 +122,6 @@ public class PJ_Combate : MonoBehaviour
                     jogador.animator.SetBool("AtaqueLeve3", true);
                     _energiaAtual -= gastoDeEnergiaAtaqueLeve3;
                     danoAtaqueBasico += danoExtraComboAtaqueLeve3;
-                    sliderBarraDeEnergia.value = _energiaAtual;
                     comboLeve++;
                     break;
             }

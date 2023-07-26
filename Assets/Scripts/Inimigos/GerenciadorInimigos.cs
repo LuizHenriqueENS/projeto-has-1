@@ -16,8 +16,12 @@ public class GerenciadorInimigos : MonoBehaviour
 
     void Update()
     {
-
-        if (Time.time >= (delaySurgimento))
+        if (QuantidadeInimigos() <= 0)
+        {
+            InstanciarInimigo();
+            delaySurgimento = Time.fixedTime + tempoRespawn;
+        }
+        if (Time.time >= delaySurgimento)
         {
             InstanciarInimigo();
 
@@ -27,10 +31,15 @@ public class GerenciadorInimigos : MonoBehaviour
 
     void InstanciarInimigo()
     {
-        bool quantidade = FindObjectsOfType<Inimigo>().Length >= 3 ? true : false;
-        if (!quantidade)
+       // bool quantidade = QuantidadeInimigos() >= 3 ? true : false;
+        if (QuantidadeInimigos() <= 3)
         {
             Instantiate(inimigos[Random.Range(0, inimigos.Length)], locaisSurgimento[Random.Range(0, locaisSurgimento.Length)]);
         }
+    }
+
+    private static int QuantidadeInimigos()
+    {
+        return FindObjectsOfType<Inimigo>().Length;
     }
 }

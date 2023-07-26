@@ -735,10 +735,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8768601563637678066, guid: 96d082158ed877c48b6566ccfde44af2, type: 3}
-      propertyPath: danoAtaqueBasico
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8768601563637678066, guid: 96d082158ed877c48b6566ccfde44af2, type: 3}
       propertyPath: sliderBarraDeVida
       value: 
       objectReference: {fileID: 1727540198}
@@ -1172,7 +1168,7 @@ MonoBehaviour:
   - {fileID: 652221271}
   - {fileID: 854327855}
   - {fileID: 1772140839}
-  tempoRespawn: 1
+  tempoRespawn: 2.5
 --- !u!114 &1727540198 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1211084121972200671, guid: 7204847d2d7a7e641bc7267e49119729, type: 3}
