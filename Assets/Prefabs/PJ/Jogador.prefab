@@ -285,6 +285,7 @@ MonoBehaviour:
   _energiaMaxima: 100
   _regeneracaoEnergia: 6
   _nivelJogador: 1
+  _quantidadeExperiencia: 0
   danoAtaqueBasico: 10
   gastoDeEnergiaAtaqueLeve1: 10
   gastoDeEnergiaAtaqueLeve2: 15
@@ -300,4 +301,5 @@ MonoBehaviour:
   sliderBarraDeVida: {fileID: 0}
   sliderBarraDeEnergia: {fileID: 0}
   moverDuranteAtaque: 1500
+  _expPorNivel: 0a0000001e000000640000005e0100005802000020030000e8030000b00400007805000040060000
   efeitoEmpurrarDuranteDano: 250

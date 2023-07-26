@@ -75,12 +75,20 @@ public class PJ_Combate : MonoBehaviour
     private void Update()
     {
         RegenegarEnergia();
+        SistemaLevelUp();
+    }
 
-        for(int i = 0; i < _expPorNivel.Count; i++){
-            if(_quantidadeExperiencia <= _expPorNivel[i]){
+    private void SistemaLevelUp()
+    {
+        for (int i = 0; i < _expPorNivel.Count; i++)
+        {
+            if (_quantidadeExperiencia < _expPorNivel[i])
+            {
                 _nivelJogador = i + 1;
                 break;
-            } else{
+            }
+            else
+            {
                 _nivelJogador = _expPorNivel.Count;
             }
         }

@@ -301,7 +301,8 @@ MonoBehaviour:
   sliderBarraDeVida: {fileID: 1768299046107754940}
   efeitoPuloMorte: 50000
   vidaAtual: 0
-  vidaMaxima: 100
+  vidaMaxima: 250
+  _experiencia: 10
 --- !u!1001 &6032229133243415006
 PrefabInstance:
   m_ObjectHideFlags: 0

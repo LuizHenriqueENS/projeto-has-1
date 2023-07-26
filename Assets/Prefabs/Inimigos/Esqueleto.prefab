@@ -300,9 +300,9 @@ MonoBehaviour:
   animatorInimigo: {fileID: 1498043170850325113}
   sliderBarraDeVida: {fileID: 8487856724418047632}
   efeitoPuloMorte: 50000
-  efeitoEmpurrarDuranteDano: 500
   vidaAtual: 0
-  vidaMaxima: 100
+  vidaMaxima: 75
+  _experiencia: 2
 --- !u!1001 &4536926145623320306
 PrefabInstance:
   m_ObjectHideFlags: 0

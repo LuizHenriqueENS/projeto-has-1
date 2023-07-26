@@ -22,6 +22,7 @@ public class Inimigo : MonoBehaviour
     // CACHE
     private Rigidbody2D _rb;
     private PJ_Movimentacao _jogador;
+    private PJ_Combate _combate;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class Inimigo : MonoBehaviour
 
         _rb = GetComponent<Rigidbody2D>();
         _jogador = FindObjectOfType<PJ_Movimentacao>();
+        _combate = FindObjectOfType<PJ_Combate>();
     }
 
     // Update is called once per frame
@@ -61,6 +63,7 @@ public class Inimigo : MonoBehaviour
 
     private void Morrer()
     {
+        _combate.AdicionarPontosDeExperiencia(_experiencia);
         animatorInimigo.SetBool("Morto", true);
         _rb.AddForce(new Vector2(0, efeitoPuloMorte));
         sliderBarraDeVida.gameObject.SetActive(false);
