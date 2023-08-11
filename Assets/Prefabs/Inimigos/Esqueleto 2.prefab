@@ -303,6 +303,12 @@ MonoBehaviour:
   vidaAtual: 0
   vidaMaxima: 250
   _experiencia: 10
+  jogador:
+    serializedVersion: 2
+    m_Bits: 512
+  valorVelocidade: 0.72
+  raioAlcance: 8
+  raioAlcanceAtaque: 0.5
 --- !u!1001 &6032229133243415006
 PrefabInstance:
   m_ObjectHideFlags: 0

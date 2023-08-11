@@ -138,7 +138,7 @@ Transform:
   m_Children:
   - {fileID: 3658142284512947181}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3959705700399848279
 SpriteRenderer:
@@ -303,6 +303,12 @@ MonoBehaviour:
   vidaAtual: 0
   vidaMaxima: 75
   _experiencia: 2
+  jogador:
+    serializedVersion: 2
+    m_Bits: 512
+  valorVelocidade: 0
+  raioAlcance: 0
+  raioAlcanceAtaque: 0
 --- !u!1001 &4536926145623320306
 PrefabInstance:
   m_ObjectHideFlags: 0
